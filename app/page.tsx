@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState } from "react";
 type HealthState = "idle" | "loading" | "ok" | "error";
 export default function Home() {
@@ -16,7 +17,7 @@ export default function Home() {
     } catch (error) { setHealth("error"); setDetail(error instanceof Error ? error.message : "API 요청에 실패했습니다."); }
   }
   return <main className="shell">
-    <nav className="nav"><a className="brand" href="/"><span className="brand-mark">A</span><span>Aura<span className="brand-light"> AI</span></span></a><span className="nav-status"><span className="status-dot" /> Modular intelligence</span></nav>
+    <nav className="nav"><Link className="brand" href="/"><span className="brand-mark">A</span><span>Aura<span className="brand-light"> AI</span></span></Link><span className="nav-status"><span className="status-dot" /> Modular intelligence</span></nav>
     <section className="hero">
       <div className="eyebrow"><span /> YOUR INTELLIGENCE, IN FLOW</div>
       <h1>Think beyond.<br/><span>Build with Aura.</span></h1>
