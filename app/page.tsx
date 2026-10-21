@@ -98,7 +98,7 @@ export default function Home() {
             <textarea ref={inputRef} value={prompt} onChange={(e) => setPrompt(e.target.value)} onKeyDown={onKeyDown} placeholder="Aura에게 무엇이든 물어보세요" rows={1} maxLength={8000} disabled={sending} aria-label="메시지 입력" />
             <div className="composer-bottom"><span>AI는 실수할 수 있습니다. 중요한 정보는 확인하세요.</span><button type="submit" className="send-btn" disabled={!prompt.trim() || sending} aria-label="메시지 보내기">{sending ? "…" : "↑"}</button></div>
           </form>
-          <footer className="app-footer"><span>한국지능정보사회진흥원(NIA) AI데이터 출처는 <button onClick={() => setShowSources(true)}>여기에서 확인</button>할 수 있습니다.</span></footer>
+          <footer className="app-footer"><span>일부 NIA 제공 데이터의 출처 표기는 <button onClick={() => setShowSources(true)}>여기에서 확인</button>할 수 있습니다.</span></footer>
         </div>
       </section>
 
@@ -106,9 +106,9 @@ export default function Home() {
         <section className="sources-modal" role="dialog" aria-modal="true" aria-labelledby="sources-title">
           <div className="modal-heading"><div><span className="modal-kicker">DATA TRANSPARENCY</span><h2 id="sources-title">학습 데이터 출처</h2></div><button className="modal-close" onClick={() => setShowSources(false)} aria-label="닫기">×</button></div>
           <p className="attribution-text">본 AI데이터 등을 이용할 때에는 반드시 한국지능정보사회진흥원의 사업결과임을 밝혀야 하며, 본 AI데이터 등을 이용한 2차적 저작물에도 동일하게 밝혀야 합니다.</p>
-          <p className="sources-disclaimer">아래 목록은 데이터 처리 도구가 기록한 출처입니다. 각 데이터셋의 개별 이용 조건도 함께 확인해야 합니다.</p>
+          <p className="sources-disclaimer">Aura AI는 개인이 개발하는 독립 프로젝트입니다. 아래 목록은 처리 도구가 기록한 데이터 출처이며, NIA 표기는 해당 NIA 데이터의 출처를 밝히기 위한 것입니다. 각 데이터셋의 개별 이용 조건도 확인해야 합니다.</p>
           {sources.length ? <div className="source-list">{sources.map((s, i) => <article className="source-item" key={s.path + i}><span className="source-index">{String(i + 1).padStart(2, "0")}</span><div><strong>{s.dataset}</strong><small>{s.path}</small></div><span className="source-status">{s.status || "기록됨"}</span></article>)}</div> : <div className="sources-empty">{sourcesError || "출처 목록을 불러오는 중입니다."}<p>출처 목록이 게시되기 전까지 이 화면은 전체 학습 데이터 목록을 보장하지 않습니다.</p></div>}
-          <div className="modal-foot">NIA 출처 표기 · 원본 데이터셋의 라이선스 조건 별도 확인</div>
+          <div className="modal-foot">Aura AI는 개인 프로젝트입니다. NIA는 해당 데이터의 출처이며 프로젝트 개발 주체가 아닙니다. 데이터셋별 이용 조건 별도 확인</div>
         </section>
       </div>}
     </main>
